@@ -12,3 +12,7 @@ exports.interaction = functions.https.onRequest((request, response) => {
   console.log(request)
   response.send("Interaction logged!")
 });
+
+exports.config = functions.https.onRequest((request, response) => {
+  response.send("Config not actually saved yet.");
+});
