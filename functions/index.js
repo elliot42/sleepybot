@@ -6,3 +6,8 @@ var functions = require('firebase-functions');
 exports.helloWorld = functions.https.onRequest((request, response) => {
   response.send("Hello from Firebase!");
 });
+
+exports.config = functions.https.onRequest((request, response) => {
+  response.send("Config not actually saved yet.");
+});
+
