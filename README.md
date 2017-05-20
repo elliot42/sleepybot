@@ -17,3 +17,8 @@ you nicely.
 # Deploy
 
 To deploy the project run `firebase deploy`
+
+# Loading the app
+
+The homepage is hosted here:
+[https://sleepybot-2a22d.firebaseapp.com/](https://sleepybot-2a22d.firebaseapp.com/)
