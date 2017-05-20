@@ -24,3 +24,14 @@ To deploy the project to the web run `firebase deploy`
 
 The homepage is hosted here:
 [https://sleepybot-2a22d.firebaseapp.com/](https://sleepybot-2a22d.firebaseapp.com/)
+
+# Making phone calls
+
+- Set up a virtual environment:
+  - One-time setup: `virtualenv venv && source venv/bin/activate && pip install twilio`
+
+- Using the virtual environment:
+  - `source venv/bin/activate` (activate virtual environment)
+
+- Calling the script:
+  - `python twilio/sleepycall.py`
