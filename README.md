@@ -13,7 +13,7 @@ you nicely.
 
 - The primary server functions (respond to requests) live in `index.js`
 - The homepage lives in `index.html`
-- To start a local development server run `firebase server`
+- To start a local development server run `firebase serve`
 - Then direct your browser to `http://localhost:5000`
 
 # Deploy
