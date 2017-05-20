@@ -8,11 +8,11 @@ exports.helloWorld = functions.https.onRequest((request, response) => {
 });
 
 exports.interaction = functions.https.onRequest((request, response) => {
-  console.log(request)
+  console.log(request.body)
   response.send("Interaction logged!")
 });
 
 exports.config = functions.https.onRequest((request, response) => {
-  console.log(request.body);
+  console.log(request.body)
   response.send("Config not actually saved yet.");
 });
