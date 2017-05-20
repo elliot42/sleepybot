@@ -9,14 +9,16 @@ you nicely.
 2. Login: `firebase login`
 2. Get permissions on the Firebase to the project (ask Elliot)
 
-# Changing the code
+# Developing the code
 
 - The primary server functions (respond to requests) live in `index.js`
 - The homepage lives in `index.html`
+- To start a local development server run `firebase server`
+- Then direct your browser to `http://localhost:5000`
 
 # Deploy
 
-To deploy the project run `firebase deploy`
+To deploy the project to the web run `firebase deploy`
 
 # Loading the app
 
