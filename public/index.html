@@ -32,6 +32,11 @@
     </style>
 
     <script src="sleepybot.js"></script>
+
+	<link href="https://api.motion.ai/sdk/webchat.css" rel="stylesheet" type="text/css">
+
+
+
   </head>
   <body>
     <div id="message">
@@ -68,5 +73,18 @@
         }
       });
     </script>
-  </body>
+
+	<script src="https://api.motion.ai/sdk/webchat.js"></script>
+	<script>
+	   motionAI_Init('57045?color=62a8ea&sendBtn=SEND&inputBox=Type%20something...&token=95d8286d460deeaa61dc8479ab9a9584',true,400,470,'https://api.motion.ai/sdk/botbtn.png');
+	   /* You may also invoke motionAI_Open() to manually open the modal. */
+	</script>
+
+<script>
+     motionAI_Open()
+</script>
+
+  </body>         
+
+
 </html>
