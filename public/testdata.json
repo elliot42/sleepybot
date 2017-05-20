@@ -1,0 +1,18 @@
+{
+	"bedtime_routine": [
+	 {
+			"name": "brush teeth", 
+			"duration": "5"
+		},
+	 {
+			"name": "turn off lights",
+			"duration": "2"
+		}
+	],
+	"name": "Kayla",
+	"bedtime": {
+		"weekdays": "10pm",
+		"weekends": "11pm"
+	},
+	"phone": "9786186820"
+}
