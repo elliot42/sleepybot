@@ -29,17 +29,26 @@
         body { border-top: 16px solid #ffa100; }
       }
     </style>
+
+    <script src="sleepybot.js"></script>
   </head>
   <body>
     <div id="message">
       <h2>Sleepybot goes here</h2>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
+
+      <a onClick="speak('ok');" href="">Help me go to sleep!</a>
     </div>
+
+    <div>
+      <center>
+        <a target="_blank" href="https://firebase.google.com/docs/hosting/">Firebase Documentation</a>
+      </center>
+    </div>
+
     <p id="load">Firebase SDK Loading&hellip;</p>
 
     <script>
       document.addEventListener('DOMContentLoaded', function() {
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
         // // The Firebase SDK is initialized and available here!
         //
         // firebase.auth().onAuthStateChanged(user => { });
@@ -47,8 +56,6 @@
         // firebase.messaging().requestPermission().then(() => { });
         // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
         //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-
         try {
           let app = firebase.app();
           let features = ['auth', 'database', 'messaging', 'storage'].filter(feature => typeof app[feature] === 'function');
