@@ -8,6 +8,7 @@ exports.helloWorld = functions.https.onRequest((request, response) => {
 });
 
 exports.interaction = functions.https.onRequest((request, response) => {
+  console.log(request.body)
   response.send("Interaction logged!")
 });
 
