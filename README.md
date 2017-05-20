@@ -35,3 +35,7 @@ The homepage is hosted here:
 
 - Calling the script:
   - `python twilio/sleepycall.py`
+
+# Webhook Locations
+
+(config): https://us-central1-sleepybot-2a22d.cloudfunctions.net/config

@@ -4,5 +4,15 @@ var functions = require('firebase-functions');
 // // https://firebase.google.com/docs/functions/write-firebase-functions
 //
 exports.helloWorld = functions.https.onRequest((request, response) => {
+  console.log(request)
   response.send("Hello from Firebase!");
+});
+
+exports.interaction = functions.https.onRequest((request, response) => {
+  console.log(request)
+  response.send("Interaction logged!")
+});
+
+exports.config = functions.https.onRequest((request, response) => {
+  response.send("Config not actually saved yet.");
 });
