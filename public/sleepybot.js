@@ -22,3 +22,10 @@ $(document).ready(function () {
     })
   })
 })
+
+function getBedtime() {
+  return "10pm";
+  // return firebase.database().ref('/bedtime/weekdays').once('value').then(function(snapshot) {
+  //   return snapshot.val().weekdays;
+  // });
+}
