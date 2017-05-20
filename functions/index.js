@@ -18,3 +18,8 @@ exports.config = functions.https.onRequest((request, response) => {
   console.log(request.body);
   response.send("Config not actually saved yet.");
 });
+
+exports.callXml = functions.https.onRequest((request, response) => {
+  console.log(request.body);
+	response.send("<Response><Say>Goodnight!</Say></Response>");
+});
