@@ -21,10 +21,12 @@ exports.config = functions.https.onRequest((request, response) => {
 });
 
 exports.callXml = functions.https.onRequest((request, response) => {
-	if //firebase username && 2 hours before usual_bedtime
-		response.send("<Response><Say>Hey //username// I’d love to chat about tonight’s bedtime plans. Hit me up on Google Home by saying 'Hey Google, let me talk to TIMO.'</Say></Response>");
-	else if //firebase time trigger && activity1 name
-		response.send("<Response><Say>Hello. I hope you’re thinking about //activity1//. Let me know when you’re getting up to do so via Google Home.</Say></Response>");
-	else if // firebase time trigger && activity2 name
-		response.send("<Response><Say>Did you get lost after //activity2//. Let me know you’re ready for bed by telling me 'Goodnight' through your Google Home!”</Say></Response>");
+  // if //firebase username && 2 hours before usual_bedtime
+  //response.send("<Response><Say>Hey //username// I’d love to chat about tonight’s bedtime plans. Hit me up on Google Home by saying 'Hey Google, let me talk to TIMO.'</Say></Response>");
+  response.send("<Response><Say>Hey I’d love to chat about tonight’s bedtime plans. Hit me up on Google Home by saying 'Hey Google, let me talk to TIMO.'</Say></Response>");
+
+  // else if //firebase time trigger && activity1 name
+  // 	response.send("<Response><Say>Hello. I hope you’re thinking about //activity1//. Let me know when you’re getting up to do so via Google Home.</Say></Response>");
+  // else if // firebase time trigger && activity2 name
+  // 	response.send("<Response><Say>Did you get lost after //activity2//. Let me know you’re ready for bed by telling me 'Goodnight' through your Google Home!”</Say></Response>");
 });
