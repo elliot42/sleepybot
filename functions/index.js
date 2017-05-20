@@ -8,9 +8,7 @@ exports.helloWorld = functions.https.onRequest((request, response) => {
 });
 
 exports.interaction = functions.https.onRequest((request, response) => {
-  console.log(request.body)
-  console.log(request.body.status)
-  console.log(request.body.result)
+  console.log(request)
   response.send("Interaction logged!")
 });
 
