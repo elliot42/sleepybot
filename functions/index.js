@@ -11,27 +11,19 @@ exports.helloWorld = functions.https.onRequest((request, response) => {
 
 exports.interaction = functions.https.onRequest((request, response) => {
   console.log(request.body)
-  /*
-   * how to read from the firebase database
-   *
-  var bedtime = admin.database().ref('/bedtime/weekdays');
-  bedtime.on('value', function (snapshot) {
-    console.log("bedtime! " + snapshot.val());
-  })
-  */
-  // if request.body.result.action === "welcome.get-bedtime"
-  //    check database for bedtime
-  //        if bedtime
-  //            res
   if (request.body.result.action === "welcome.get-bedtime") {
     var bedtime = admin.database().ref('/bedtime/weekdays');
     bedtime.on('value', function (snapshot) {
       if (snapshot.val() !== undefined) {
         var res = {
-          "speech": "Hey friend! It's almost time for bed.",
+          "speech": "Hey friend! It's almost time for bed. Want to start getting ready?",
           "displayText": "Hey friend! It's almost bedtime. Want to start getting ready?",
           "data": { },
-          "contextOut": [{ "name": "bedtime-checkin", "lifespan": "2" }]
+          "contextOut": [{ "name": "bedtime-checkin", "lifespan": "3" }],
+          "followupEvent": {
+            "name": "ALMOST-BEDTIME",
+            "data": { }
+          }
         };
         response.send(res);
       }
