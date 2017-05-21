@@ -11,15 +11,23 @@ exports.helloWorld = functions.https.onRequest((request, response) => {
 
 exports.interaction = functions.https.onRequest((request, response) => {
   console.log(request.body)
+  /*
+   * how to read from the firebase database
+   *
   var bedtime = admin.database().ref('/bedtime/weekdays');
   bedtime.on('value', function (snapshot) {
     console.log("bedtime! " + snapshot.val());
   })
-  console.log("weekday bedtime: " + bedtime)
+  */
+  // if request.body.result.action === "welcome.get-bedtime"
+  //    check database for bedtime
+  //        if bedtime
+  //            res
   var res = {
-    "speech": "stub",
-    "displayText": "alsoStub",
-    "data": { "stub": "stub" }
+    "speech": "Hey friend! It's almost time for bed.",
+    "displayText": "Hey friend! It's almost time for bed.",
+    "data": { },
+    "contextOut": [{ "name": "bedtime-checkin", "lifespan": "2" }]
   };
   response.send(res)
 });
