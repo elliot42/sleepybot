@@ -20,8 +20,7 @@ exports.interaction = functions.https.onRequest((request, response) => {
           "speech": "Hey friend! It's almost time for bed. Want to start getting ready?",
           "displayText": "Hey friend! It's almost time for bed. Want to start getting ready?",
           "data": {},
-          "contextOut": [{ "name": "bedtime-checkin", "lifespan": "2" }],
-          "followupEvent": { "name": "ALMOST-BEDTIME", "data": {} }
+          "contextOut": [{ "name": "bedtime-checkin", "lifespan": "2" }]
         };
         response.send(res);
       }
