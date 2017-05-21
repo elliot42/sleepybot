@@ -23,7 +23,6 @@ exports.interaction = functions.https.onRequest((request, response) => {
         res.data = {};
         res.contextOut = [{ "name": "bedtime-checkin", "lifespan": "3" }];
         res.followupEvent = { "name": "ALMOST-BEDTIME", "data": {} };
-        response.send(res);
       }
     })
   } else {
