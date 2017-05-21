@@ -15,7 +15,7 @@ exports.interaction = functions.https.onRequest((request, response) => {
   if (request.body.result.action === "welcome.get-bedtime") {
     var bedtime = admin.database().ref('/bedtime/estimate');
     bedtime.on('value', function (snapshot) {
-      if (snapshot.val() !== undefined) {
+      if (snapshot.val() !== "undefined") {
         var res = {
           "speech": "Hey friend! It's almost time for bed. Want to start getting ready?",
           "displayText": "Hey friend! It's almost time for bed. Want to start getting ready?",
