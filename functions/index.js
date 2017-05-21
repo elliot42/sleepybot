@@ -13,7 +13,7 @@ exports.interaction = functions.https.onRequest((request, response) => {
   console.log(request.body)
   // if there's a bedtime in the database, skip straight to bedtime-checkin
   if (request.body.result.action === "welcome.get-bedtime") {
-    var bedtime = admin.database().ref('/bedtime/weekdays');
+    var bedtime = admin.database().ref('/bedtime/estimate');
     bedtime.on('value', function (snapshot) {
       if (snapshot.val() !== undefined) {
         var res = {
@@ -23,6 +23,8 @@ exports.interaction = functions.https.onRequest((request, response) => {
           "contextOut": [{ "name": "bedtime-checkin", "lifespan": "2" }]
         };
         response.send(res);
+      } else {
+        response.send("we good");
       }
     })
   } else {
