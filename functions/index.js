@@ -35,7 +35,20 @@ exports.interaction = functions.https.onRequest((request, response) => {
 
 exports.config = functions.https.onRequest((request, response) => {
   console.log(request.body)
-  response.send("Config not actually saved yet.");
+  if (request.body.moduleNickname == 'What is your name?') {
+  }
+  else if (request.body.moduleNickname == 'Collect usual sleep time') {
+    var bedtime = admin.database().ref('/bedtime/weekends');
+    return bedtime.set(request.body.replyData);
+  }
+  else if (request.body.moduleNickname == 'Get Phone Number') {
+  }
+  else if (request.body.moduleNickname == '1st activity before falling asleep') {
+  }
+  else if (request.body.moduleNickname == 'Duration of 1st activity before falling asleep') {
+  }
+
+  response.send("Done");
 });
 
 exports.callXml = functions.https.onRequest((request, response) => {
