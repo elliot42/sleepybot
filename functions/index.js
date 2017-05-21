@@ -33,6 +33,8 @@ exports.interaction = functions.https.onRequest((request, response) => {
         response.send(res);
       }
     })
+  } else {
+    response.send("Logged!");
   }
 });
 
