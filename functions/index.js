@@ -23,13 +23,22 @@ exports.interaction = functions.https.onRequest((request, response) => {
   //    check database for bedtime
   //        if bedtime
   //            res
-  var res = {
-    "speech": "Hey friend! It's almost time for bed.",
-    "displayText": "Hey friend! It's almost time for bed.",
-    "data": { },
-    "contextOut": [{ "name": "bedtime-checkin", "lifespan": "2" }]
-  };
-  response.send(res)
+  if (request.body.result.action === "welcome.get-bedtime") {
+    var bedtime = admin.database().ref('/bedtime/weekdays');
+    bedtime.on('value', function (snapshot) {
+      if (snapshot.val() !== undefined) {
+        var res = {
+          "speech": "Hey friend! It's almost time for bed.",
+          "displayText": "Hey friend! It's almost bedtime. Want to start getting ready?",
+          "data": { },
+          "contextOut": [{ "name": "bedtime-checkin", "lifespan": "2" }]
+        };
+        response.send(res);
+      }
+    })
+  } else {
+    response.send("guh");
+  }
 });
 
 exports.config = functions.https.onRequest((request, response) => {
