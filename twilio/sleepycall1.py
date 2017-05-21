@@ -8,6 +8,6 @@ client = Client(account_sid, auth_token)
 
 call = client.calls.create(to="+14082024554",
                            from_="+16692227955",
-                           url="https://us-central1-sleepybot-2a22d.cloudfunctions.net/callXml")
+                           url="http://sleepybot-2a22d.firebaseapp.com/democall1.xml")
 
 print(call.sid)
