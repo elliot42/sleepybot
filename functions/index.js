@@ -37,16 +37,24 @@ exports.interaction = functions.https.onRequest((request, response) => {
 exports.config = functions.https.onRequest((request, response) => {
   console.log(request.body)
   if (request.body.moduleNickname == 'What is your name?') {
+    var bedtime = admin.database().ref('/name');
+    bedtime.set(request.body.replyData);
   }
   else if (request.body.moduleNickname == 'Collect usual sleep time') {
     var bedtime = admin.database().ref('/bedtime/weekends');
     bedtime.set(request.body.replyData);
   }
   else if (request.body.moduleNickname == 'Get Phone Number') {
+    var bedtime = admin.database().ref('/phone');
+    bedtime.set(request.body.replyData);
   }
   else if (request.body.moduleNickname == '1st activity before falling asleep') {
+    var bedtime = admin.database().ref('/bedtime_routine/0/name');
+    bedtime.set(request.body.replyData);
   }
   else if (request.body.moduleNickname == 'Duration of 1st activity before falling asleep') {
+    var bedtime = admin.database().ref('/bedtime_routine/0/duration');
+    bedtime.set(request.body.replyData);
   }
 
   response.send("Done");
