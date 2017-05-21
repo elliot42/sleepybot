@@ -12,30 +12,26 @@ exports.helloWorld = functions.https.onRequest((request, response) => {
 exports.interaction = functions.https.onRequest((request, response) => {
   console.log(request.body)
   // if there's a bedtime in the database, skip straight to bedtime-checkin
+  var res = {}
   if (request.body.result.action === "welcome.get-bedtime") {
     var bedtime = admin.database().ref('/bedtime/weekdays');
     bedtime.on('value', function (snapshot) {
       if (snapshot.val() !== undefined) {
-        // bedtime has already been set
-        // has cue been sent?
-        //    if not, send cue
-        //    else,
-        var res = {
-          "speech": "Hey friend! It's almost time for bed. Want to start getting ready?",
-          "displayText": "Hey friend! It's almost bedtime. Want to start getting ready?",
-          "data": { },
-          "contextOut": [{ "name": "bedtime-checkin", "lifespan": "3" }],
-          "followupEvent": {
-            "name": "ALMOST-BEDTIME",
-            "data": { }
-          }
-        };
+        var talk = "Hey friend! It's almost time for bed. Want to start getting ready?";
+        res.speech = talk;
+        res.displayText = talk;
+        res.data = {};
+        res.contextOut = [{ "name": "bedtime-checkin", "lifespan": "3" }];
+        res.followupEvent = { "name": "ALMOST-BEDTIME", "data": {} };
         response.send(res);
       }
     })
   } else {
-    response.send("Logged!");
+    res.speech = request.body.result.fulfillment.speech;
+    res.displayText = request.body.result.fulfillment.speech;
+    res.data = {};
   }
+  response.send(res);
 });
 
 exports.config = functions.https.onRequest((request, response) => {
