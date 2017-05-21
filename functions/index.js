@@ -23,14 +23,11 @@ exports.interaction = functions.https.onRequest((request, response) => {
         res.data = {};
         res.contextOut = [{ "name": "bedtime-checkin", "lifespan": "3" }];
         res.followupEvent = { "name": "ALMOST-BEDTIME", "data": {} };
+        response.send(res);
       }
     })
-  } else {
-    res.speech = request.body.result.fulfillment.speech;
-    res.displayText = request.body.result.fulfillment.speech;
-    res.data = {};
   }
-  response.send(res);
+  response.send("Interaction complete");
 });
 
 exports.config = functions.https.onRequest((request, response) => {
