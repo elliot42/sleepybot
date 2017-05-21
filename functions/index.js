@@ -44,7 +44,7 @@ exports.config = functions.https.onRequest((request, response) => {
   }
   else if (request.body.moduleNickname == 'Collect usual sleep time') {
     var bedtime = admin.database().ref('/bedtime/weekends');
-    return bedtime.set(request.body.replyData);
+    bedtime.set(request.body.replyData);
   }
   else if (request.body.moduleNickname == 'Get Phone Number') {
   }
